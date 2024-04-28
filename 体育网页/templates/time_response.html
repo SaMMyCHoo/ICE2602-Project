@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            padding: 0;
+            background: url(https://i.328888.xyz/2023/01/14/wM0EE.png);
+            background-size:cover;
+            background-attachment: fixed;
+        }
+        .search-box{
+            position: absolute;
+            top: 35%;
+            left:50%;
+            font-size: 25px;
+            transform: translate(-50%,-50%);
+            height: 40px;
+            border-radius: 40px;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-box mybutton{
+            position: relative;
+            align-items: center;
+        }
+        .search-box:hover > .search-txt{
+            width: 240px;
+            padding: 0 6px;
+        }
+        .search-ball{
+            color:red;
+            float: right;
+            width: 50px;
+            height: 50px;
+            margin-top: 10%;
+            background: url(https://i.328888.xyz/2023/01/14/wugq5.png);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-txt{
+            border:none;
+            background: antiquewhite;
+            outline: none;
+            float: left;
+            padding: 0;
+            color: black;
+            font-size: 15px;
+            transition: 0.6s;
+            line-height: 40px;
+            width: 0px;
+        }
+        .search-txt1{
+            border:none;
+            background: antiquewhite;
+            outline: none;
+            float: left;
+            margin-top: 10%;
+            padding: 0;
+            color: black;
+            font-size: 15px;
+            transition: 0.6s;
+            line-height: 45px;
+            width: 0px;
+        }
+
+        .search-ball1{
+            color:red;
+            float: right;
+            width:50px;
+            height: 50px;
+            background: url(https://i.328888.xyz/2023/01/14/wu728.png);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+
+        .search-box1{
+            position: absolute;
+            top:70%;
+            left:50%;
+            font-size: 25px;
+            transform: translate(-50%,-50%);
+            height: 40px;
+            border-radius: 40px;
+            padding: 10px;
+        }
+        .search-box1:hover > .search-txt1{
+            width: 240px;
+            height: 40px;
+            padding: 0 6px;
+        }
+
+        .heading{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .heading h1{
+            color:antiquewhite;
+            font-size: 80px;
+        }
+        .search_bound{
+            box-shadow: 10px 10px 10px 5px rgba(0,0,0,0.9);
+            background-color: rgba(165,112,81,0.4);
+            border-radius: 10px 10px 10px 10px;
+        }
+        .search_bound .search1{
+            background-color: rgba(151,213,250,0.7);
+            border-radius: 10px 10px 10px 10px;
+            margin-top: 0%;
+            height: 50px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 40px;
+            text-align: center;
+            align-items: center;
+        }
+        .search_bound .search2{
+            border-radius: 10px 10px 10px 10px;
+            font-family:"Lucida Console", "Courier New", monospace;
+            text-align: center;
+            align-items: center;
+            height: 50px;
+        }
+        .search_bound .search3{
+            border-radius: 10px 10px 10px 10px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            align-items: center;
+            height: 50px;
+        }
+        .search_bound .search4{
+            border-radius: 10px 10px 10px 10px;
+            font-family:'Times New Roman', Times, serif;
+            text-align: center;
+            align-items: center;
+            height: 50px;
+        }
+        .btn{
+            margin-left: 5%;
+            height: 40px;
+            border: 2px solid #008CBA;
+             /* 给边框添加圆角 */
+            border-radius: 30px; 
+            width: 150px;
+            text-align: center;
+            text-decoration: none;
+            
+        }
+        .btn1 {
+            font-size: 25px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            /* 给边框添加圆角 */
+            border-radius: 15px;
+            text-decoration: none; 
+            top: 50%;;
+        }
+        /* 悬停样式 */
+        .btn:hover {
+            background-color: #008CBA;
+            color: white;
+        }
+        .withoutfind
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1><strong>Best-Sport-News</strong></h1>
+    </div>
+    <br>
+    <div class="btn">
+        <a href="/" class="btn1">Search again</a>
+    </div>
+    <ul>
+        <h1>Search result of {{content}}</h1>
+        <h1>Find {{length}} results:</h1>
+        {% if not all_elem | length %}
+        <div class="withoutfind">
+            <img src="https://i.328888.xyz/2023/01/15/2OYEc.png" alt="Wrong!">
+        </div>
+        {% else %}
+            {% for elem in all_elem%}
+            <div class="search_bound">
+                <div class="search1">
+                    <a href="{{elem[0]}}">{{elem[1]}}</a>
+                </div>
+                <br>
+                <div class="search2">
+                    {%for i in elem[2]%}
+                        {% if i in content%}
+                            <b class="a" style="color: red ; font-size: 25px;">{{i}}</b>
+                        {% else %}
+                            <b class="a" style="color: black ;font-size: 25px;">{{i}}</b>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <br>
+                <div class="search3">
+                    <a href="{{elem[0]}}" style="color: rgb(13, 115, 43);font-size: 25px;">{{elem[0]}}</a>
+                </div>
+                <div class="search4">
+                    <a href="{{elem[0]}}" style="color: rgb(0, 30, 128);font-size: 25px;">{{elem[4][0]}}年{{elem[4][1]}}月{{elem[4][2]}}日</a>
+                </div>
+                <br>
+                <br>
+            </div>
+            {% endfor%}
+        {% endif %}
+    </ul>
+</body>
+</html>

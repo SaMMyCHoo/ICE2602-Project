@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="<%=request.getContextPath() %>/resources/jquery-1.12.4.min.js" ></script>
+    <script src="<%=request.getContextPath() %>/resources/js/jquery-form.js" ></script>
+    <script type="text/javascript">
+        function fileSelect() {
+            document.getElementById("business_license").click(); 
+        }
+        function fileSelected() {
+          alert("选中");
+        }
+    </script>
+	<title>test</title>
+	<style>
+		.plus{
+			display:inline-block;
+			width: 94px;
+			height: 94px;
+			line-height: 94px;
+			border:1px solid #ccc;
+			text-align: center;
+			cursor: pointer;
+			overflow: hidden;
+		}
+		img{
+			width: 92px;
+		}
+	</style>
+</head>
+<body>
+	<form  methods="POST" enctype="multipart/form-data" 
+		action="/response"  id="fileUploadForm">
+		<span class="label">成绩管理:</span>
+		<span class="plus">
+			<img id="business_license_img" onclick="fileSelect()"  data-path=""
+	      				src="<%=request.getContextPath() %>/resources/imgs/plus.png">
+	      	<input type="file" name="business_license" id="business_license"
+	      	 onchange="fileSelected()" style="display:none;">			
+		</span>
+	</form>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            padding: 0;
+            background: url(https://i.328888.xyz/2023/01/14/wM0EE.png);
+            background-size:cover;
+        }
+        .search_bound{
+            box-shadow: 10px 10px 10px 5px rgba(0,0,0,0.9);
+            background-color: rgba(165,112,81,0.4);
+            border-radius: 10px 10px 10px 10px;
+        }
+        .search_bound .search1{
+            background-color: rgba(205,201,201,0.7);
+            border-radius: 10px 10px 10px 10px;
+            margin-top: 0%;
+            height: 70px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 40px;
+            text-align: center;
+            align-items: center;
+        }
+        .search_bound .search2{
+            border-radius: 10px 10px 10px 10px;
+            font-family:"Lucida Console", "Courier New", monospace;
+            text-align: center;
+            align-items: center;
+        }
+        .btn{
+            background-color: rgba(250,235,215,0.7);
+            border: 2px solid #008CBA;
+             /* 给边框添加圆角 */
+            border-radius: 10px; 
+            width: 100px;
+            text-align: center;
+        }
+        .btn1 {
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: large;
+            height: 30px;
+            text-decoration: none;
+        }
+        /* 悬停样式 */
+        .btn:hover {
+            background-color: #ba7900f6;
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn">
+        <a href="/" class="btn1">Search again</a>
+    </div>
+    <div class="btn">
+        <a href="/delete" class="btn1">clear history</a> 
+    </div>
+    <div class="search_bound">
+        <div class="search1">
+            <h1 style=" font-size: 50px; color:bisque;">搜索历史</h1>
+        </div>
+        <div class="search2">
+            {%for ele in keys %}
+                <em><ol style="color: blue; font-weight:200; font-size:medium">{{ele}}</ol></em>
+            {% endfor %}
+        </div>
+    </div>
+    
+</body>
+</html>
